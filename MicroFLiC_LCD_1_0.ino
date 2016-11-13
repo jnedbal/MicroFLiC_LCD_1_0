@@ -29,6 +29,16 @@
 LiquidCrystal lcd(A0, A1, A2, A3, A4, A5);
 
 // Initialize the DAC library
+// Originally from:
+// https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/neuroelec/mcp4728_library-v1.3.zip
+// unzip into libraries folder in the Arduino working directory
+// Change mcp4728.h file in line 7 from
+// #include "WProgram.h"
+// into
+// #include "Arduino.h"
+// Change all Wire.send with Wire.write in m4728.cpp
+// Change all Wire.receive with Wire.read in m4728.cpp
+
 mcp4728 dac = mcp4728(0); // instantiate mcp4728 object, Device ID = 0
 
 

@@ -21,12 +21,30 @@ void initLCDpins(void)
 
 }
 
+void createErrorChar(void)
+{
+  // create an inverse E symbol
+  // #####  0x1F
+  // #   #  0x11
+  // # ###  0x17
+  // #  ##  0x13
+  // # ###  0x17
+  // #   #  0x11
+  // #####  0x1F
+   uint8_t errorChar[8] = {0x1F, 0x11, 0x17, 0x13, 0x17, 0x11, 0x1F};
+   lcd.createChar(0, errorChar);
+}
+
 // Set up the LCD
 void setLCD(void)
 {
   // Reset the counters
   LCDindexW = 0;
   LCDindexR = 0;
+  
+  // Create error character
+  createErrorChar();
+
   // Print a message to the LCD.
   lcd.setCursor(0, 0);
   lcd.print("                    ");
